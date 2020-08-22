@@ -1,0 +1,9 @@
+import json
+from urllib.request import urlopen
+
+def getSittingNo(SittingDate):
+    response=urlopen("https://sprs.parl.gov.sg/search/getHansardReport/?sittingDate="+SittingDate)
+    responseJson=json.loads(response)
+    return responseJson.get("sittingNO")
+
+print(getSittingNo("4-6-2020"))
